@@ -24,19 +24,33 @@ A personal tool that turns monthly energy consumption letters (paper/PDF from lo
 
 ## Tech Stack & Conventions
 
-- Frontend: Simple HTML/CSS/JS (or lightweight framework) — keep it minimal
-- Backend: Python (Flask or FastAPI) for OCR and LLM integration
-- OCR: Tesseract or cloud OCR API for text extraction from images/PDFs
-- LLM: Claude API for interpreting extracted text and generating explanations
-- Charts: Chart.js or similar lightweight charting library
-- Data storage: Local JSON or SQLite — no need for a full database at this stage
+- **Framework:** Next.js 16.1 (App Router, Turbopack)
+- **Frontend:** React 19, Tailwind CSS 4, Recharts (charts/data viz), Three.js (3D consumption view)
+- **Backend:** Next.js API Routes (serverless functions)
+- **Database:** Supabase (PostgreSQL + Realtime subscriptions for live updates)
+- **OCR:** Claude API vision capabilities for text extraction from images/PDFs (upload → send image to Claude → extract structured data)
+- **LLM:** Claude API (Anthropic SDK) for interpreting extracted text, generating explanations, and answering follow-up questions
+- **Auth:** Supabase Auth (email/password — keep it simple)
+- **Storage:** Supabase Storage for uploaded letter images/PDFs
+- **Deployment:** Vercel (auto-deploy from main branch)
+- **Package manager:** pnpm
+- **Linting:** ESLint + Prettier (default Next.js config)
+- Use `"use client"` only when necessary — prefer Server Components by default
+- API routes go in `app/api/` — keep them thin, delegate logic to `lib/`
+- Supabase client: use `@supabase/ssr` for server-side, `@supabase/supabase-js` for client-side
+- Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `ANTHROPIC_API_KEY`
 
 ## Project Structure
 
 ```
-docs/           — Product documentation (personas, metrics, competitive landscape)
-research/       — User interviews and raw research data
-samples/        — Example consumption letters and test data
+app/              — Next.js App Router pages and layouts
+app/api/          — API routes (serverless functions for OCR, LLM calls)
+components/       — React components (upload form, charts, letter display)
+lib/              — Shared utilities (Supabase client, Claude API helpers, data parsing)
+public/           — Static assets
+docs/             — Product documentation (personas, metrics, competitive landscape)
+research/         — User interviews and raw research data
+samples/          — Example consumption letters and test data
 .claude/skills/   — Reusable skills (each skill has its own directory with SKILL.md)
 ```
 
@@ -47,5 +61,5 @@ samples/        — Example consumption letters and test data
 - When generating explanations, write for someone with no energy industry knowledge — plain language, no jargon
 - Challenge my assumptions — ask "what evidence supports this?" when I propose features
 - Default to simple implementations — this is a personal tool, not enterprise software
-- When writing code, keep dependencies minimal and prefer standard library where possible
+- When writing code, keep dependencies minimal — prefer what's already in the stack (Next.js, Supabase, Recharts) over adding new packages
 - Always consider the German-language context of the source letters (field names, units, date formats)
