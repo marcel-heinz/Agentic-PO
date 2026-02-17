@@ -1,6 +1,7 @@
 ---
 name: prd
-description: Generate a PRD from a problem statement
+description: Generate a PRD from a problem statement. Use when the user wants to write a product requirements document, define a feature, or turn a problem into a spec.
+argument-hint: [problem statement or feature idea]
 ---
 
 # PRD Generator
@@ -26,3 +27,10 @@ Then generate a PRD with these sections:
 - Keep the total PRD under 500 words — concise over comprehensive
 - Use the user story format from CLAUDE.md: "As a [persona], I want [action], so that [outcome]"
 - Write the PRD to /docs/prds/ with a descriptive filename
+
+## Additional resources
+
+- For user personas, see [/docs/personas.md](/docs/personas.md)
+- For metrics context, see [/docs/metrics.md](/docs/metrics.md)
+- For competitive context, see [/docs/competitive-landscape.md](/docs/competitive-landscape.md)
+- For raw user research, see [/research/](/research/)

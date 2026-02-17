@@ -37,7 +37,7 @@ A personal tool that turns monthly energy consumption letters (paper/PDF from lo
 docs/           — Product documentation (personas, metrics, competitive landscape)
 research/       — User interviews and raw research data
 samples/        — Example consumption letters and test data
-.claude/commands/ — Reusable skills (slash commands) for common workflows
+.claude/skills/   — Reusable skills (each skill has its own directory with SKILL.md)
 ```
 
 ## How to Help Me

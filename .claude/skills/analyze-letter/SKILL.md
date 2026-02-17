@@ -1,6 +1,7 @@
 ---
 name: analyze-letter
-description: Analyze an uploaded energy consumption letter and extract structured data
+description: Analyze an uploaded energy consumption letter and extract structured data. Use when the user uploads, pastes, or references a consumption letter, energy bill, or Verbrauchsinformation.
+argument-hint: [path to letter image/PDF or pasted text]
 ---
 
 # Energy Consumption Letter Analyzer
@@ -33,9 +34,13 @@ Based on the extracted data:
 - Is consumption trending up, down, or stable?
 - Any actionable suggestions (e.g., "Your warm water usage is 30% above building average — consider shorter showers or checking for leaks")
 
+## 4. Structured Output
+
+Suggest a JSON format for storing this data for future charting. See [sample extraction format](../../samples/sample-consumption-letter.md) for the expected schema.
+
 ## Rules
 
 - If the letter is in German, extract data but write the analysis in English
 - If data points are unclear or missing, flag them explicitly — do not guess
 - Always note the confidence level: "High confidence" / "Medium — layout unclear" / "Low — manual check needed"
-- Suggest what structured JSON format this data should be stored in for future charting
+- When multiple consumption values exist (raw, adjusted, per-m²), extract all but clearly label which is which

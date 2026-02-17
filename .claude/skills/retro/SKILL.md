@@ -1,6 +1,8 @@
 ---
 name: retro
-description: Generate a sprint retrospective summary from notes
+description: Generate a sprint retrospective summary from notes or discussion points. Use when the user wants to summarize a retro, analyze what went well/poorly, or create action items from a sprint.
+disable-model-invocation: true
+argument-hint: [retro notes or discussion points]
 ---
 
 # Sprint Retro Summary Generator

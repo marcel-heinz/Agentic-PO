@@ -24,10 +24,13 @@ Agentic-PO/
 ├── samples/
 │   └── sample-consumption-letter.md   # Example of a monthly energy consumption letter
 └── .claude/
-    └── commands/
-        ├── prd.md                     # Skill: generate a PRD from a problem statement
-        ├── analyze-letter.md          # Skill: analyze an uploaded consumption letter
-        └── retro.md                   # Skill: sprint retrospective summary
+    └── skills/
+        ├── prd/
+        │   └── SKILL.md              # Skill: generate a PRD from a problem statement
+        ├── analyze-letter/
+        │   └── SKILL.md              # Skill: analyze an uploaded consumption letter
+        └── retro/
+            └── SKILL.md              # Skill: sprint retrospective summary
 ```
 
 ---
@@ -40,7 +43,7 @@ Agentic-PO/
 | **Part 1** — Steinberger-to-PO Translation | 10 min | Side-by-side: how power-user devs work vs. power-user POs |
 | **Part 2** — Live Demo with Claude Code | 30 min | 5 demos using this repo: CLAUDE.md, interview synthesis, parallel agents, skills, prototype |
 | **Part 3** — The New PO Skill Stack | 10 min | What changes: skills that grow, shrink, and emerge |
-| **Part 4** — Hands-On Experiment | 15 min | Participants build their own CLAUDE.md + slash command |
+| **Part 4** — Hands-On Experiment | 15 min | Participants build their own CLAUDE.md + skill |
 | **Part 5** — Discussion Round | 10 min | Open dialogue on implications |
 
 ---
@@ -81,7 +84,7 @@ A small web app where you:
 2. Open it in Claude Code (`claude` in terminal)
 3. Claude reads `CLAUDE.md` automatically — your product context is loaded
 4. Run the demos from Part 2 of the session plan
-5. Use the skills in `.claude/commands/` for repeatable workflows
+5. Use the skills in `.claude/skills/` for repeatable workflows
 
 ### For Participants (Hands-On)
 
@@ -89,7 +92,7 @@ A small web app where you:
 2. Read through `CLAUDE.md` to understand how context engineering works
 3. Try running `/prd` or `/analyze-letter` in Claude Code
 4. Modify `CLAUDE.md` for your own product/team
-5. Create your own skill in `.claude/commands/`
+5. Create your own skill in `.claude/skills/`
 
 ---
 
