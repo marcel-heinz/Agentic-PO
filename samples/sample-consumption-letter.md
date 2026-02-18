@@ -12,7 +12,7 @@
 | **Nutzer-Nr:** | 0009-002 |
 |---------------|----------|
 | **Lage:** | DGR |
-| **Nutzername:** | Maria Knitzschke<br>Marcel Heinz |
+| **Nutzername:** | Jane Doe<br>John Doe |
 
 ---
 
