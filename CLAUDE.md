@@ -29,7 +29,7 @@ A personal tool that turns monthly energy consumption letters (paper/PDF from lo
 - **Backend:** Next.js API Routes (serverless functions)
 - **Database:** Supabase (PostgreSQL + Realtime subscriptions for live updates)
 - **OCR:** Claude API vision capabilities for text extraction from images/PDFs (upload → send image to Claude → extract structured data)
-- **LLM:** Claude API (Anthropic SDK) for interpreting extracted text, generating explanations, and answering follow-up questions
+- **LLM:** OpenRouter API for interpreting extracted text, generating explanations, and answering follow-up questions (allows swapping models freely)
 - **Auth:** Supabase Auth (email/password — keep it simple)
 - **Storage:** Supabase Storage for uploaded letter images/PDFs
 - **Deployment:** Vercel (auto-deploy from main branch)
