@@ -38,7 +38,7 @@ A personal tool that turns monthly energy consumption letters (paper/PDF from lo
 - Use `"use client"` only when necessary — prefer Server Components by default
 - API routes go in `app/api/` — keep them thin, delegate logic to `lib/`
 - Supabase client: use `@supabase/ssr` for server-side, `@supabase/supabase-js` for client-side
-- Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `ANTHROPIC_API_KEY`
+- Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`
 
 ## Project Structure
 
