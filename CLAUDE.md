@@ -2,25 +2,27 @@
 
 ## What This Product Does
 
-A personal tool that turns monthly energy consumption letters (paper/PDF from local provider) into structured, understandable data. Users upload or photograph their monthly warm water consumption overview, and the app uses OCR + LLM to extract key figures, visualize consumption trends over time, and explain what the numbers actually mean in plain language.
+A personal tool that turns monthly energy consumption letters (paper/PDF from local provider) into structured, understandable data. Users upload or photograph their monthly Verbrauchsabrechnung covering both heating (Wärme für Heizung) and warm water (Wärme für Warmwasser), and the app uses OCR + LLM to extract key figures, visualize consumption trends over time, and explain what the numbers actually mean in plain language.
 
 ## Who Uses It
 
-- **Primary: Marcel (Apartment Tenant)** — Receives monthly consumption letters for warm water from a local energy provider. Wants to understand whether consumption is normal, track trends over months/years, and catch anomalies early before they become expensive surprises. Not technically savvy regarding energy metrics.
+- **Primary: Marcel (Apartment Tenant)** — Receives monthly consumption letters (Verbrauchsabrechnung) for heating and warm water from Leipziger Stadtwerke. Wants to understand whether consumption is normal, track trends over months/years, and catch anomalies early before they become expensive surprises. Not technically savvy regarding energy metrics.
 - **Secondary: Cost-Conscious Renters** — People in shared or multi-unit buildings who receive opaque consumption overviews and want transparency without needing domain expertise.
 
 ## What Matters Right Now
 
 - **North star metric:** Percentage of monthly letters processed and tracked (target: 100% of received letters uploaded and analyzed)
 - **Current focus:** Core OCR pipeline — reliably extracting consumption data from the specific letter format of the local provider
-- **Key constraint:** Letters vary in layout between providers; start with one provider's format and generalize later
+- **Key constraint:** Letters vary in layout between providers; start with Leipziger Stadtwerke's format and generalize later
 
 ## Domain Knowledge
 
-- Consumption letters typically contain: billing period, meter readings (start/end), consumption in kWh or m³, cost breakdown, comparison to previous period, comparison to building average
-- Common units: kWh (kilowatt-hours) for heating, m³ (cubic meters) for warm water
+- Leipziger Stadtwerke letters ("Verbrauchsabrechnung") contain two sections: **Wärme für Heizung** and **Wärme für Warmwasser**
+- Each section includes: current month consumption, previous month, same month previous year, difference vs. previous year, difference vs. building average, and a 13-month consumption history
+- Common units: kWh (kilowatt-hours) for both heating and warm water
+- Letters also contain: Liegenschaftsdaten (property ID, address), Nutzerdaten (tenant ID, unit location, names)
 - German energy providers often use "Heizkostenabrechnung" or "Verbrauchsinformation" as letter titles
-- Key data points to extract: consumption value, unit, period (month/year), cost, comparison values
+- Key data points to extract: consumption value (kWh), period (month/year), comparison to previous year, comparison to building average, 13-month trend data
 
 ## Tech Stack & Conventions
 
@@ -38,6 +40,7 @@ A personal tool that turns monthly energy consumption letters (paper/PDF from lo
 - Use `"use client"` only when necessary — prefer Server Components by default
 - API routes go in `app/api/` — keep them thin, delegate logic to `lib/`
 - Supabase client: use `@supabase/ssr` for server-side, `@supabase/supabase-js` for client-side
+- **Project management:** Linear (MCP integration configured at `~/.claude/mcp.json`)
 - Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`
 
 ## Project Structure
@@ -50,7 +53,7 @@ lib/              — Shared utilities (Supabase client, Claude API helpers, dat
 public/           — Static assets
 docs/             — Product documentation (personas, metrics, competitive landscape)
 research/         — User interviews and raw research data
-samples/          — Example consumption letters and test data
+samples/          — Real extracted consumption data and sample letter images
 .claude/skills/   — Reusable skills (each skill has its own directory with SKILL.md)
 ```
 
